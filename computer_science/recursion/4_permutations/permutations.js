@@ -1,11 +1,9 @@
 const permutations = function (arr) {
-  if (arr.length <= 0) return [[]];
+  if (arr.length <= 1) return [arr];
 
   let result = [];
 
-  if (arr.length === 1) {
-    result[0] = arr;
-  } else if (arr.length === 2) {
+  if (arr.length === 2) {
     // if only two items, return an array with both possibilities
     result[0] = arr;
     result[1] = [arr[1], arr[0]];
@@ -17,7 +15,7 @@ const permutations = function (arr) {
 
       let subPermutations = permutations(subArr);
 
-      // for each variation of the remaining numbers, add it to result
+      // for each variation of the remaining numbers, add it to resultS
       for (let j = 0; j < subPermutations.length; j++) {
         result.push([arr[i], ...subPermutations[j]]);
       }
