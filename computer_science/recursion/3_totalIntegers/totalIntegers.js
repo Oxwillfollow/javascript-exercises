@@ -1,11 +1,7 @@
 const totalIntegers = function (obj, isFirstCall = true) {
   let total = 0;
 
-  if (Array.isArray(obj)) {
-    for (let i = 0; i < obj.length; i++) {
-      total += totalIntegers(obj[i], false);
-    }
-  } else if (typeof obj === "object" && obj !== null) {
+  if (typeof obj === "object" && obj !== null) {
     for (let val of Object.values(obj)) {
       total += totalIntegers(val, false);
     }
